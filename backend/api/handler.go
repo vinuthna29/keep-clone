@@ -15,7 +15,7 @@ type Note struct {
 
 func CreateNote(c *gin.Context) {
 	var note Note
-	if err := c.BindJSON(note); err != nil {
+	if err := c.BindJSON(&note); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
