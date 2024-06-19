@@ -10,17 +10,16 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy all files from the frontend directory to the Docker image
+# Copy all files from the current directory to the Docker image
 COPY . .
-
-# Build your application (if necessary)
-# RUN npm run build
 
 # Install a simple HTTP server
 RUN npm install -g http-server
 
 # Expose the port your app runs on
-EXPOSE 8080
+EXPOSE 5000
 
 # Command to run your app using http-server
-CMD ["http-server", "index.html"]
+# CMD ["http-server", "."]
+
+CMD ["http-server", "-p", "5000"]
